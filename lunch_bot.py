@@ -4,7 +4,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, ContextTypes
 import datetime
 
-EMPLOYEES = ["홍길동", "김철수", "이영희", "최민수"]
+EMPLOYEES = ["천정우", "조규명", "박채원", "홍유진", "JEREMY", "BRYANT", "JONSON", "TODD", "TAYLER"]
 
 daily_check = {name: False for name in EMPLOYEES}
 
@@ -29,7 +29,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         selected = [name for name, checked in daily_check.items() if checked]
         count = len(selected)
 
-        result_text = f"📅 {today} 점심 인원\n총 {count}명\n\n"
+        result_text = f"[{today}] 창고 RM 점심 {count}인분 부탁드립니다.\n"
         if selected:
             result_text += "\n".join(f"- {name}" for name in selected)
         else:
